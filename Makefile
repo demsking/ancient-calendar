@@ -66,6 +66,7 @@ update:
 
 #
 ## Documentation
+.PHONY: doc/openapi.json
 doc/openapi.json:
 	python scripts/generate-openapi.py > $@
 
