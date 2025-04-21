@@ -1,0 +1,12 @@
+---
+name: dev-ancient-calendar
+
+services:
+  devcontainer:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ..:/workspaces:cached
+      - ~/.cache/huggingface:/root/.cache/huggingface
+    command: sleep infinity

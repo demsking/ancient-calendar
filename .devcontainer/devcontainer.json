@@ -1,0 +1,57 @@
+{
+  "name": "Ancient Calendar",
+  "dockerComposeFile": "workspace.yaml",
+  "service": "devcontainer",
+  "runServices": [
+    "ollama"
+  ],
+  "workspaceFolder": "/workspaces",
+  "shutdownAction": "stopCompose",
+  "postCreateCommand": "poetry install",
+  "forwardPorts": [
+    4241
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "charliermarsh.ruff",
+        "ms-python.pylint",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "GitHub.copilot"
+      ],
+      "settings": {
+        "python.analysis.typeCheckingMode": "basic",
+        "python.analysis.diagnosticSeverityOverrides": {
+          "reportMissingTypeStubs": "information",
+          "reportPrivateImportUsage": "none"
+        },
+        "python.analysis.exclude": [
+          ".venv/**"
+        ],
+        "python.analysis.autoImportCompletions": true,
+        "python.analysis.completeFunctionParens": true,
+        "python.analysis.diagnosticMode": "workspace",
+        "python.analysis.importFormat": "relative",
+        "python.analysis.inlayHints.functionReturnTypes": true,
+        "python.analysis.inlayHints.pytestParameters": true,
+        "python.analysis.inlayHints.variableTypes": true,
+        "python.analysis.fixAll": [
+          "source.convertImportFormat"
+        ],
+        "python.testing.pytestEnabled": true,
+        "python.testing.unittestEnabled": false,
+        "python.terminal.activateEnvInCurrentTerminal": true,
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff"
+        },
+        "python.envFile": "${workspaceFolder}/.devcontainer/.env",
+        "python.terminal.shellIntegration.enabled": false,
+        "python.testing.pytestArgs": [
+          "tests"
+        ]
+      }
+    }
+  }
+}
