@@ -36,6 +36,7 @@ pages:
   stage: deploy
   script:
     - cp -r doc/ public/
+    - cp -r doc/ public/doc/
     - ls -lah public/
     - echo "The documentation site will be deployed to $CI_PAGES_URL"
   artifacts:
