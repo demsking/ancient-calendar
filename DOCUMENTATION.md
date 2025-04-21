@@ -27,9 +27,9 @@ calculations adjusted for timezones, making it accessible to users worldwide.
 ### Docker Image
 
 The [`demsking/ancient-calendar`](https://hub.docker.com/r/demsking/ancient-calendar)
-Docker image is officially available on Docker Hub, supporting `linux/amd64` platform.
-The image is configured to expose port `4241`, which serves the API and documentation
-endpoints.
+Docker image is officially available on Docker Hub, supporting both
+`linux/amd64` and `linux/arm64` platforms. The image is configured to expose
+port `4241`, which serves the API and documentation endpoints.
 
 The local documentation can be accessed at `http://localhost:4241/docs` for easy
 reference on available endpoints and usage instructions.
@@ -46,6 +46,24 @@ docker run -d --env-file <path_to_env_file> -p 4241:4241 demsking/ancient-calend
 Replace `<path_to_env_file>` with the path to your
 [environment variables](#description/environment-variables) file containing the
 necessary configurations.
+
+### Deploy with Docker Compose
+
+Create a `compose.yml` file:
+
+```yaml
+services:
+  calendar:
+    image: demsking/ancient-calendar
+    ports:
+      - 4241:4241
+```
+
+Run the container using `docker compose`:
+
+```sh
+docker compose up -d
+```
 
 ## Environment Variables
 

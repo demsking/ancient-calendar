@@ -1,20 +1,19 @@
-FROM python:3.11-slim
+FROM python:3.11-alpine
 
 # Set environment variables
 ENV PATH="/home/devuser/.local/bin:$PATH"
 ENV POETRY_HOME="/home/devuser/.local"
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 
-# Set the shell to /bin/bash and enable pipefail
-SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
+# Set the shell to /bin/ash and enable pipefail
+SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
 # Install dependencies
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends \
+RUN apk add --no-cache \
     git \
     curl \
     make \
-  && rm -rf /var/lib/apt/lists/*
+    bash
 
 # Upgrade pip and setuptools to the latest version
 RUN pip install --no-cache-dir --upgrade pip setuptools wheel
@@ -23,7 +22,7 @@ RUN pip install --no-cache-dir --upgrade pip setuptools wheel
 RUN curl -sSL https://install.python-poetry.org | python -
 
 # Create a non-root user without a password
-RUN useradd --create-home --shell /bin/bash devuser \
+RUN adduser -D devuser \
   && chown -R devuser:devuser /home/devuser
 
 # Switch to the devuser

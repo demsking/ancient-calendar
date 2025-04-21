@@ -67,7 +67,7 @@ update:
 #
 ## Documentation
 .PHONY: doc/openapi.json
-doc/openapi.json:
+doc/openapi.json: DOCUMENTATION.md
 	python scripts/generate-openapi.py > $@
 
 resources: doc/openapi.json
@@ -86,7 +86,7 @@ build/requirements.txt: pyproject.toml poetry.lock
 image: build/context build/requirements.txt resources
 	docker buildx use $(APP_NAME)
 	docker buildx build . \
-	  --platform linux/amd64 \
+	  --platform linux/amd64,linux/arm64 \
 	  --push \
 	  --progress plain \
 	  --tag $(IMAGE_NAME):$(APP_VERSION) \

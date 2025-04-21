@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM python:3.11-alpine
 
 ENV PATH="/opt/ancient-calendar/bin:/usr/local/bin:$PATH"
 ENV PYTHONPATH="/opt/ancient-calendar:/usr/local/lib/python3.11/site-packages"
@@ -13,8 +13,8 @@ ENV TIMEZONE="UTC"
 ENV LOG_LEVEL="info"
 ENV LOG_FILE=
 
-# Set the shell to /bin/bash and enable pipefail
-SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
+# Set the shell to /bin/ash and enable pipefail
+SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
 # Upgrade pip and setuptools to the latest version
 RUN pip install --no-cache-dir --upgrade pip setuptools wheel
