@@ -35,8 +35,9 @@ include:
 pages:
   stage: deploy
   script:
-    - cp -r doc/ public/
-    - cp -r doc/ public/doc/
+    - mkdir -p public/doc
+    - cp doc/*.html doc/*.json public/
+    - cp doc/*.png doc/*.jpg public/doc/
     - ls -lah public/
     - echo "The documentation site will be deployed to $CI_PAGES_URL"
   artifacts:
