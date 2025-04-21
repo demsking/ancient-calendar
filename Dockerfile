@@ -30,7 +30,6 @@ RUN chmod +x /opt/ancient-calendar/bin/* \
 
 # Copy application files
 COPY pyproject.toml LICENSE DOCUMENTATION.md /opt/ancient-calendar/
-COPY models/ /opt/ancient-calendar/models
 COPY server/ /opt/ancient-calendar/server
 
 VOLUME "/var/cache/ancient-calendar"
