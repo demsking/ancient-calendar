@@ -112,7 +112,7 @@ class EgyptianCalendarDetails(BaseModel):
   egyptian_zodiac: str = Field(
     ..., description='The Egyptian zodiac sign associated with the current date.', examples=['Amun-Ra']
   )
-  coptic_date: str = Field(..., description='The corresponding date in the Coptic calendar.', examples=['Parmouti 14, 1741'])
+  coptic_date: str = Field(..., description='The corresponding date in the Coptic calendar.', examples=['Parmouti 14, 6266'])
   # historical_events: list[str] = Field(
   #   default_factory=list, description='List of historical or cultural events associated with the date.'
   # )
