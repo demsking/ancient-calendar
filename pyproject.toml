@@ -5,7 +5,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry]
 name = "ancient-calendar"
 version = "1.0.0-beta0"
-description = "Get real-time information about the ancient Ancient Calendar year"
+description = "Get information about the ancient Egyptian calendar"
 keywords = ["podcast", "natural-language", "AI-assistant", "LLaMA"]
 authors = ["Sébastien Demanou <demsking@gmail.com>"]
 license = "Apache-2.0"
